@@ -2,9 +2,12 @@ PROGRAM supernova
 
 ! AUTHOR: Federico Esposito
 !   DATE: 2016/03/08
-!
+! 
+! 
+! 
 !   grid xa -> m, v
 !   grid xb -> d, p, e, q
+! 
 
 
 IMPLICIT NONE
