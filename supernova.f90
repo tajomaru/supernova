@@ -121,7 +121,7 @@ IMPLICIT NONE
      delta_p = p(j) - p(j-1)
      v(j) = v(j) - delta_p*dt/(dxb(j)*d_mean)
    END DO
-   CALL bound_cond (n, v, bc)
+   CALL bound_cond (n, v, 2)
    
   ! 2a: artificial viscosity q(j)
    DO j=2,n-1
@@ -139,7 +139,7 @@ IMPLICIT NONE
      delta_q = q(j) - q(j-1)
      v(j) = v(j) - delta_q*dt/(dxb(j)*d_mean)
    END DO
-   CALL bound_cond (n, v, bc)
+   CALL bound_cond (n, v, 2)
    
   ! 2c: update energy with viscosity
    DO j=2,n-1
@@ -169,7 +169,7 @@ IMPLICIT NONE
    DO j=2,n-1
      s(j) = v(j)*0.5*(d(j-1) + d(j))
    END DO
-   CALL bound_cond (n, s, bc)
+   CALL bound_cond (n, s, 2)
    
   ! 2: apply upwind 1st or 2nd order
    SELECT CASE (order)
@@ -195,8 +195,8 @@ IMPLICIT NONE
          s(j) = s(j) - (F(j) - F(j-1))*dt/dvlb(j)
          v(j) = s(j)*2./(d(j-1) + d(j))
        END DO
-       CALL bound_cond (n, s, bc)
-       CALL bound_cond (n, v, bc)
+       CALL bound_cond (n, s, 2)
+       CALL bound_cond (n, v, 2)
        
      CASE (2) ! upwind 2nd order (van leer method)
       ! update d & e
@@ -246,8 +246,8 @@ IMPLICIT NONE
          s(j) = s(j) - first - (sigma(j)/2.)*second
          v(j) = s(j)*2./(d(j-1) + d(j))
        END DO
-       CALL bound_cond (n, s, bc)
-       CALL bound_cond (n, v, bc)
+       CALL bound_cond (n, s, 2)
+       CALL bound_cond (n, v, 2)
    END SELECT
  END DO
  
