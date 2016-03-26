@@ -184,6 +184,11 @@ IMPLICIT NONE
        CALL upwind1 (e, dsa, dvla, v, dt, n, bc)
        p = e*(gamma - 1.)
        
+      ! update temperature K
+       DO j=1,n
+         K(j) = e(j)/(c_v*d(j))
+       END DO
+       
       ! momentum flux
        DO j=2,n-1
          v_mean = 0.5*(v(j) + v(j+1))
@@ -271,10 +276,10 @@ IMPLICIT NONE
  END DO
  
  120 FORMAT (X, 3(ES15.3E4, 2X))
- 130 FORMAT (X, 4(ES15.3E4, 2X))
+ 130 FORMAT (X, 5(ES15.3E4, 2X))
  DO j=1,n
    WRITE(12,120) xa(j)/pc2cm, v(j)/km2cm, s(j)/km2cm
-   WRITE(13,130) xb(j)/pc2cm, d(j), p(j), e(j)
+   WRITE(13,130) xb(j)/pc2cm, d(j), p(j), e(j), K(j)
  END DO
  PRINT*, "r_s = ", r_s/pc2cm
  PRINT*, "r_sedov = ", r_sedov (E0, d0, t/yr2sec) 

@@ -1,4 +1,4 @@
-set multiplot layout 2,2 rowsfirst
+set multiplot layout 3,2 rowsfirst
 
 set grid
 
@@ -29,6 +29,13 @@ set title "Specific energy [cm^2/s^2]"
 unset key
 set autoscale
 plot "sn_b.dat" u 1:($4/$2) w lp
+#
+set title "Temperature [K]"
+unset key
+set autoscale
+plot "sn_b.dat" u 1:5 w lp
+#
+load "shock.plt"
 #
 unset multiplot
 unset arrow
