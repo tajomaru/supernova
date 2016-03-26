@@ -1,7 +1,14 @@
 set multiplot layout 2,2 rowsfirst
-a = 19.605253909122236
-unset arrow
+
+set grid
+
+a = "`tail -1 shock.dat | awk '{print $3}'`"
+
 set arrow from first a, graph 0 to first a, graph 1 nohead lt 2
+
+unset xlabel
+unset ylabel
+
 #
 set title "Density [g/cm^3]"
 unset key
@@ -24,3 +31,4 @@ set autoscale
 plot "sn_b.dat" u 1:($4/$2) w lp
 #
 unset multiplot
+unset arrow

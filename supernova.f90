@@ -258,13 +258,14 @@ IMPLICIT NONE
   !----------------SHOCK RADIUS-----------------
   ! finding shock radius
    DO j=2,n-1
-     dv(j) = v(j+1) - v(j)
+     dv(j) = ABS(v(j+1) - v(j))
    END DO
    r_s = xa(MAXLOC(dv,1))
    
   ! plot one every 1000 yr
   IF ((t/yr2sec).GE.((mill+1.)*1.d3)) THEN
-    WRITE(14,*) t/yr2sec, r_s/pc2cm
+    WRITE(14,*) t/yr2sec, r_s/pc2cm, &
+              & r_sedov (E0, d0, t/yr2sec)
     mill = mill + 1
   END IF
  END DO

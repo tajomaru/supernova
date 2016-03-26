@@ -4,12 +4,12 @@
 grid points for space                  n            1000
 infimum of space [pc]                  xmin         0.
 supremum of space [pc]                 xmax         50.
-integration time [yr]                  t_end        3.d3
+integration time [yr]                  t_end        3.d4
 initial sn energy [erg]                E0           1.d51
 initial ism density [g/cm3]            d0           2.d-24
 initial ism temperature [K]            K0           1.d4
 initial ism velocity [m/s]             v0           0.
-initial safety factor for delta_t      dt_sf_i      0.005
+initial safety factor for delta_t      dt_sf_i      0.01
 final safety factor for delta_t        dt_sf_i      0.5
 adiabatic coefficient                  gamma        1.4
 specific heat [cgs]                    c_v          2.d8
