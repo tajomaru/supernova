@@ -264,7 +264,7 @@ IMPLICIT NONE
    
   ! plot one every 1000 yr
   IF ((t/yr2sec).GE.((mill+1.)*1.d3)) THEN
-    WRITE(14,*) t/yr2sec, r_s/pc2cm
+    WRITE(14,*) t/yr2sec, r_s
     mill = mill + 1
   END IF
  END DO

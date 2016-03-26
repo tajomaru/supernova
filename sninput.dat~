@@ -4,7 +4,7 @@
 grid points for space                  n            1000
 infimum of space [pc]                  xmin         0.
 supremum of space [pc]                 xmax         50.
-integration time [yr]                  t_end        3.d3
+integration time [yr]                  t_end        3.d4
 initial sn energy [erg]                E0           1.d51
 initial ism density [g/cm3]            d0           2.d-24
 initial ism temperature [K]            K0           1.d4
